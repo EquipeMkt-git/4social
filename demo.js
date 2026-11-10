@@ -108,6 +108,37 @@ window.DEMO_DADOS = (function () {
     { id: 'm8', escopo: 'pessoa', alvo: 'bruno@exemplo.com', metrica: 'videos_feitos', periodo: mes, valor: 16 }
   ];
 
+  // ---- operação do time (fictício)
+  const mais = function (n) { const d = new Date(hoje); d.setDate(d.getDate() + n); return iso(d); };
+  usuarios[1].aniversario = pad(new Date(mais(4)).getDate()) + '/' + pad(new Date(mais(4)).getMonth() + 1); usuarios[1].entrada = '2023-' + mais(9).slice(5);
+  usuarios[2].aniversario = '15/03'; usuarios[3].entrada = '2021-02-01';
+  posts.forEach(function (p) { if (p.rede === 'instagram' && p.status === 'postado') p.levantadas = Math.round(num0(p.comentarios) * (p.objetivo === 'comentarios' ? 0.5 : 0.15)); });
+  function num0(v) { return Number(v) || 0; }
+  const tarefas = [
+    { id: 't1', titulo: 'Layout do carrossel de pró-labore', responsavel: 'ana@exemplo.com', prazo: mais(1), status: 'aberta' },
+    { id: 't2', titulo: 'Editar reels do podcast (corte 2)', responsavel: 'bruno@exemplo.com', prazo: mais(-1), status: 'aberta' },
+    { id: 't3', titulo: 'Revisar legendas da semana', responsavel: 'demo@4blue.com.br', prazo: mais(0), status: 'aberta' },
+    { id: 't4', titulo: 'Subir artes no Drive', responsavel: 'carla@exemplo.com', prazo: mais(-2), status: 'feita', feita_em: mais(-2) + 'T10:00:00' }
+  ];
+  const pautas = [
+    { id: 'pa1', titulo: 'Todo empresário odeia o INSS', descricao: 'Ideia do time comercial: dúvida recorrente nas reuniões.', rede: 'instagram', conta: 'ig-4blue', formato: 'Reels', objetivo: 'compartilhamentos', status: 'sugerida', sugerido_por: 'carla@exemplo.com' },
+    { id: 'pa2', titulo: '3 sinais de que o preço está errado', rede: 'instagram', conta: 'ig-4blue', formato: 'Carrossel', objetivo: 'salvos', status: 'aprovada', responsavel: 'ana@exemplo.com', data_prevista: mais(3), sugerido_por: 'elisa@exemplo.com' },
+    { id: 'pa3', titulo: 'Bastidores do evento', rede: 'instagram', conta: 'ig-4blue', formato: 'Reels', objetivo: 'comentarios', status: 'aprovacao', responsavel: 'bruno@exemplo.com', data_prevista: mais(2), sugerido_por: 'demo@4blue.com.br',
+      comentarios: JSON.stringify([{ por: 'bruno@exemplo.com', em: mais(-1) + 'T15:00', texto: '[Aguardando aprovação] Primeira versão no Drive.' }]) },
+    { id: 'pa4', titulo: 'Checklist de fim de ano', rede: 'instagram', conta: 'ig-4blue', formato: 'Carrossel', objetivo: 'salvos', status: 'agendada', responsavel: 'ana@exemplo.com', data_prevista: mais(5), sugerido_por: 'demo@4blue.com.br' },
+    { id: 'pa5', titulo: 'Meme da reunião de segunda', rede: 'instagram', conta: 'ig-4blue', formato: 'Imagem', objetivo: 'curtidas', status: 'ajustes', responsavel: 'carla@exemplo.com', data_prevista: mais(4), sugerido_por: 'carla@exemplo.com',
+      comentarios: JSON.stringify([{ por: 'demo@4blue.com.br', em: mais(0) + 'T09:00', texto: '[Ajustes] Trocar a fonte para Montserrat e alinhar o texto.' }]) }
+  ];
+  const farol = [
+    { id: 'f1', tipo: 'campanha', titulo: 'Campanha de exemplo', ini: mais(6), fim: mais(12) },
+    { id: 'f2', tipo: 'folga', titulo: 'Férias Ana', pessoa: 'ana@exemplo.com', ini: mais(4), fim: mais(9) },
+    { id: 'f3', tipo: 'evento', titulo: 'Evento presencial (exemplo)', ini: mais(8), fim: mais(9) }
+  ];
+  const levantadas = [];
+  for (let i = 0; i < 18; i++) levantadas.push({ id: 'lv' + i, data: mais(-Math.floor(rnd() * 25)), rede: 'instagram', conta: 'ig-4blue', origem: 'kaizen', palavra: 'EU QUERO' });
+  const integracoes = { props: { GRAPH_VERSAO: 'v23.0' }, ultimo: {}, kaizen: false };
+
   return { usuarios: usuarios, contas: contas, posts: posts, snapshots: snapshots, metas: metas,
+    tarefas: tarefas, pautas: pautas, farol: farol, levantadas: levantadas, gatilhos: ['EU QUERO', 'LUCRO', 'MENTORIA'], integracoes: integracoes,
     atualizadoEm: new Date().toISOString(), demo: true };
 })();
