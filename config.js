@@ -9,7 +9,7 @@
  * Nada de token, senha ou chave neste arquivo: o repositório é público.
  */
 window.APP_CONFIG = {
-  API_URL: '',
+  API_URL: 'https://script.google.com/macros/s/AKfycbx5Z1PwVROkDGGEp86FXHNGORS6e79ByUuEzgG61foKXUReD6rwSLXsbnUWPWfkQbaX/exec',
   GOOGLE_CLIENT_ID: '',
   DOMINIO: '4blue.com.br',
   NOME: '4social'
