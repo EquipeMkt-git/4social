@@ -10,7 +10,7 @@
  */
 window.APP_CONFIG = {
   API_URL: 'https://script.google.com/macros/s/AKfycbx5Z1PwVROkDGGEp86FXHNGORS6e79ByUuEzgG61foKXUReD6rwSLXsbnUWPWfkQbaX/exec',
-  GOOGLE_CLIENT_ID: '',
+  GOOGLE_CLIENT_ID: '397559732703-q3l6tmt3p6hoc8s3aumsah741u6jmrge.apps.googleusercontent.com',
   DOMINIO: '4blue.com.br',
   NOME: '4social'
 };
